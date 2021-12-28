@@ -1,0 +1,22 @@
+<p>product-create works!</p>
+
+
+<form #createProductForm = "ngForm" (ngSubmit)="submit(createProductForm.value)">
+  <h1>{{title}}</h1>
+  <table>
+    <tr>
+      <td>Id</td>
+      <td><input type="text"  ngModel name="id"></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" ngModel name="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button >Submit</button></td>
+    </tr>
+  </table>
+
+
+</form>

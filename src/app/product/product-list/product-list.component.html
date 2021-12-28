@@ -1,0 +1,17 @@
+<p>product-list works!</p>
+
+<button (click)="changeStatus()">Create</button>
+<table>
+  <tr>
+    <td>#</td>
+    <td>Id</td>
+    <td>Name</td>
+  </tr>
+  <tr *ngFor="let product of products;index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+  </tr>
+</table>
+
+<app-product-create (eventEmitter)="addNewProduct($event)" [title]="'Form tao moi san pham'" *ngIf="isShowCreateForm"></app-product-create>
