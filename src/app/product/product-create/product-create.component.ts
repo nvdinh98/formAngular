@@ -12,11 +12,12 @@ export class ProductCreateComponent implements OnInit {
   title: string = 'Product Create Form';
   // product: Product ={};
   @Output()
-
   eventEmitter: EventEmitter<Product> = new EventEmitter<Product>();
 
-  submit(product) {
-    this.eventEmitter.emit(product);
+  submit(productForm) {
+    this.eventEmitter.emit(productForm.value);
+    productForm.resetForm()
+
   }
 
   constructor() {

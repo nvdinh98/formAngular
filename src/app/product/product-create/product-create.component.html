@@ -1,20 +1,32 @@
 <p>product-create works!</p>
 
 
-<form #createProductForm = "ngForm" (ngSubmit)="submit(createProductForm.value)">
+<form #createProductForm="ngForm" (ngSubmit)="submit(createProductForm)">
   <h1>{{title}}</h1>
   <table>
     <tr>
       <td>Id</td>
-      <td><input type="text"  ngModel name="id"></td>
+      <td><input type="text" ngModel name="id"></td>
     </tr>
     <tr>
       <td>Name</td>
-      <td><input type="text" ngModel name="name"></td>
+      <td><input type="text"
+                 required
+                 minlength="6"
+                 maxlength="12"
+                 ngModel
+                 #name="ngModel"
+                 name="name">
+        <ng-container *ngIf="name.invalid && name.touched">
+          <p *ngIf="name.errors?.minlength"> Ten co it nhat 6 ki tu</p>
+        </ng-container>
+      </td>
     </tr>
     <tr>
       <td></td>
-      <td><button >Submit</button></td>
+      <td>
+        <button>Submit</button>
+      </td>
     </tr>
   </table>
 

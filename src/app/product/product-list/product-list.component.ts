@@ -25,6 +25,9 @@ export class ProductListComponent implements OnInit{
   ]
 
   isShowCreateForm = false;
+  isShowEditForm = false;
+
+  index = -1;
 
   changeStatus() {
     this.isShowCreateForm = !this.isShowCreateForm;
@@ -39,5 +42,12 @@ export class ProductListComponent implements OnInit{
   addNewProduct(product) {
     this.products.push(product);
   }
-  
+
+  showEditForm(i: number) {
+  this.isShowEditForm = !this.isShowEditForm;
+  this.index = i;
+  }
+  editProduct(product){
+this.products[this.index] = product;
+  }
 }

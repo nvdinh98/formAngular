@@ -6,12 +6,15 @@
     <td>#</td>
     <td>Id</td>
     <td>Name</td>
+    <td>Edit</td>
   </tr>
   <tr *ngFor="let product of products;index as i">
     <td>{{i + 1}}</td>
     <td>{{product.id}}</td>
     <td>{{product.name}}</td>
+    <td><button (click)="showEditForm(i)">Edit</button></td>
   </tr>
 </table>
 
 <app-product-create (eventEmitter)="addNewProduct($event)" [title]="'Form tao moi san pham'" *ngIf="isShowCreateForm"></app-product-create>
+<app-product-edit (eventEmitter)="editProduct($event)"  [product]="products[index]" *ngIf="isShowEditForm"></app-product-edit>
